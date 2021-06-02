@@ -11,3 +11,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.MuiButton-text {
+  border-radius: 50px !important;
+}
+
+.spacer {
+  flex-grow: 1 !important;
+}
+
+.NavBarLogo{
+  width: 160px;
+  padding-bottom: 3px;
+}
+
+a.HomeLogo {
+  color: white;
+}
+
+a.HomeLogo svg{
+  padding-right: 10px;
+}
+
+a.HomeLogo.not-active{
+  cursor: default;
+  pointer-events: none;
+}
