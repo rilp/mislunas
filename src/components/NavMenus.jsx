@@ -8,14 +8,16 @@ import LogoIcon from '../images/logo.svg';
 export class NavMenus extends Component {
     render() {
         return (
-            <AppBar position="static">
+            <AppBar position="sticky" id="public-navbar" elevation={1}>
                 <Toolbar>
-                    <NavLink exact to="/" activeClassName="not-active" className="HomeLogo">
-                    <Icon path={mdiMoonWaningCrescent} size={1.6} rotate={-12} />
-                        <img src={LogoIcon} alt="Logo Mis Lunas" className="NavBarLogo" />
+                    <NavLink exact to="/" activeClassName="not-active">
+                        <Icon path={mdiMoonWaningCrescent} size={1.6} rotate={-12} />
+                        <img src={LogoIcon} alt="Logo Mis Lunas" className="navbar-logo" />
                     </NavLink>
                     <div className="spacer" />
-                    <Button color="inherit" endIcon={<Icon path={mdiAccountCircleOutline} size={1}/>} size="large">Iniciar Sesión</Button>
+                    <NavLink to="/login" activeClassName="not-active">
+                        <Button color="inherit" endIcon={<Icon path={mdiAccountCircleOutline} size={1}/>} size="large">Iniciar Sesión</Button>
+                    </NavLink>
                 </Toolbar>
             </AppBar>
         )

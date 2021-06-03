@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 
@@ -10,7 +10,9 @@ const theme = createMuiTheme({
       main: "#7672A0"
     },
     secondary: {
-      main: "#F48FB1"
+      main: "#F48FB1",
+      dark: "#F49FBC",
+      contrastText: "#FFFFFF"
     },
     bg: {
       main: "#FDEAEF"
