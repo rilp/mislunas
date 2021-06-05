@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import {NavLink} from 'react-router-dom';
-import {AppBar, Toolbar, Button} from '@material-ui/core';
+import {NavLink, useLocation} from 'react-router-dom';
+import {AppBar, Toolbar, Button, IconButton, Tooltip} from '@material-ui/core';
 import Icon from '@mdi/react';
-import { mdiMoonWaningCrescent, mdiAccountCircleOutline } from '@mdi/js';
+import { mdiMoonWaningCrescent, mdiAccountCircleOutline, mdiLogout, mdiPiggyBank } from '@mdi/js';
 import LogoIcon from '../images/logo.svg';
+import '../sass/calendar.scss';
 
-export class NavMenus extends Component {
+export class PublicNavMenu extends Component {
     render() {
         return (
             <AppBar position="sticky" id="public-navbar" elevation={1}>
@@ -22,6 +23,49 @@ export class NavMenus extends Component {
             </AppBar>
         )
     }
+}
+
+export class CalendarMenu extends Component {
+    render() {
+        return (
+            <div className="side-menu">
+                <Tooltip title="很好" placement="right" arrow>
+                    <div className="menu-item menu-item-1">
+                        <IconButton><Icon path={mdiMoonWaningCrescent} size={1.2}/></IconButton>
+                    </div>
+                </Tooltip>
+                <Tooltip title="常常" placement="right" arrow>
+                    <div className="menu-item menu-item-2">
+                        <IconButton><Icon path={mdiAccountCircleOutline} size={1.2}/></IconButton>
+                    </div>
+                </Tooltip>
+                <Tooltip title="上课" placement="right" arrow>
+                <div className="menu-item menu-item-3">
+                    <IconButton><Icon path={mdiPiggyBank} size={1.2}/></IconButton>
+                </div>
+                </Tooltip>
+                <Tooltip title="Salir" placement="right" arrow>
+                <div className="menu-item menu-item-4">
+                    <IconButton><Icon path={mdiLogout} size={1.2}/></IconButton>
+                </div>
+                </Tooltip>
+            </div>
+        )
+    }
+}
+
+function getMenu (path) {
+    if (path==="/calendario")
+        return <CalendarMenu />
+    else
+        return <PublicNavMenu />
+}
+
+const NavMenus = () => {
+    const location = useLocation();
+    return (
+        getMenu(location.pathname)
+    )
 }
 
 export default NavMenus

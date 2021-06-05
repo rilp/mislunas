@@ -1,0 +1,26 @@
+.side-menu {
+    position: fixed;
+    width: 50px;
+    top: 130px;
+    
+}
+.menu-item {
+    width: 0;
+	height: 0;
+	border-top: 75px solid transparent;
+	border-left: 50px solid #7672A0;
+	border-bottom: 75px solid transparent;
+    position:relative;
+    button {
+        position: absolute;
+        top: -27px;
+        left: -55px;
+        color: white;
+    }
+}
+
+@for $i from 0 through 3 {
+    .menu-item-#{$i+1} {
+        top: unquote($i*-50 + 'px');
+    }
+} 

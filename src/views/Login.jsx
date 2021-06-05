@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, Container, Box, Button, InputLabel, InputAdornment, OutlinedInput, FormControl } from '@material-ui/core'
 import Icon from '@mdi/react';
 import { mdiEmailOutline, mdiLockOutline, mdiFacebook } from '@mdi/js';
+import { NavLink } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -9,7 +10,7 @@ const Login = () => {
         <Container>
             <Card id="login-card">
                 <Box px={4} py={2}>
-                    <Button variant="contained" color="primary" size="large" startIcon={<Icon path={mdiFacebook} size={0.7} />}>Iniciar sesión con Facebook</Button>
+                    <Button variant="contained" className="btn-fb-login" size="large" startIcon={<Icon path={mdiFacebook} size={0.8} />}>Iniciar sesión con Facebook</Button>
                     <div className="o-divider"><span>O</span></div>
                     <form noValidate autoComplete="off">
                     <FormControl variant="outlined">
@@ -37,7 +38,9 @@ const Login = () => {
                             labelWidth={70}
                         />
                     </FormControl>
-                    <Button variant="contained" color="secondary" size="large">Iniciar Sessión</Button>
+                    <NavLink exact to="/calendario">
+                        <Button variant="contained" color="secondary" size="large">Iniciar Sessión</Button>
+                    </NavLink>
                     <Button color="secondary" className="password-reset">¿Olvidaste tu contraseña?</Button>
                     </form>
                 </Box>
